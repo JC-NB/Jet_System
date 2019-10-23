@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Jet_System.Utils
 {
-    abstract class PCI
+    public abstract class PCI
     {
         //写数据
         public const uint PCI_OUT0 = 1;//相机开始拍照信号
@@ -52,12 +52,11 @@ namespace Jet_System.Utils
         {
             
             m_dev = DASK.Register_Card(PCI_name, 0);
-           // DASK.DIO_SetDualInterrupt
-         //  DASK.DIO_INT1_EventMessage
+     
             if (m_dev < 0)
             {
                 MessageBox.Show("Register_Card error!");
-              //  Application.Exit();
+           
                 System.Environment.Exit(0);
             }
         }
@@ -69,7 +68,7 @@ namespace Jet_System.Utils
                 ret = DASK.Release_Card((ushort)m_dev);
             }
         }
-        public static uint Read()
+        public  uint Read()
         {
             short ret;
             uint int_value;
@@ -83,7 +82,7 @@ namespace Jet_System.Utils
             }
             return int_value;
         }
-        public static void Write(uint data)
+        public  void Write(uint data)
         {
             short ret;
             
@@ -105,7 +104,7 @@ namespace Jet_System.Utils
     }
 
 
-    class PCI7230 : PCI
+    public class PCI7230 : PCI
     {
         //构造函数
         public PCI7230()

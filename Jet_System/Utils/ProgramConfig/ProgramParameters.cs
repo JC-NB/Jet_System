@@ -35,6 +35,10 @@ namespace Jet_System.Utils.ProgramConfig
 
         public int Current_Program { set; get; }
 
+        public int MeasureDeep { set; get; }
+
+        public int ImageDeleteNum { set; get; }
+
 
 
     }

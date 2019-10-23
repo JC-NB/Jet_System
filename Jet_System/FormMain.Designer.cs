@@ -101,7 +101,10 @@ namespace Jet_System
             this.dataGrid_Beam_Inner_L = new System.Windows.Forms.DataGridView();
             this.tab_Beam_Inner_R = new System.Windows.Forms.TabPage();
             this.dataGrid_Beam_Inner_R = new System.Windows.Forms.DataGridView();
+            this.tab_TiePian = new System.Windows.Forms.TabPage();
+            this.dataGrid_TiePian = new System.Windows.Forms.DataGridView();
             this.palSelectMeasure = new System.Windows.Forms.Panel();
+            this.ra_TiePian = new System.Windows.Forms.RadioButton();
             this.ra_Beam_Inner_L = new System.Windows.Forms.RadioButton();
             this.ra_Beam_Inner_R = new System.Windows.Forms.RadioButton();
             this.ra_Beam_Height_L = new System.Windows.Forms.RadioButton();
@@ -118,6 +121,11 @@ namespace Jet_System
             this.ra_Beam_Touch_Window_L_R = new System.Windows.Forms.RadioButton();
             this.ra_Beam_Touch_Window_L_L = new System.Windows.Forms.RadioButton();
             this.groupBoxTongji = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.LabelWaveDataCnt = new System.Windows.Forms.Label();
+            this.btnClearaHistory = new System.Windows.Forms.Button();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.BtnWave = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.lbl_DO_OKNG = new System.Windows.Forms.Label();
             this.lbl_RAF_OKNG = new System.Windows.Forms.Label();
@@ -142,9 +150,12 @@ namespace Jet_System
             this.label1 = new System.Windows.Forms.Label();
             this.tblImageAndControl = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnRunOnce_D0_T = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbxHistoryData = new System.Windows.Forms.ComboBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lblStatusShow = new System.Windows.Forms.Label();
             this.txtTime = new System.Windows.Forms.TextBox();
-            this.btnSwitch = new System.Windows.Forms.Button();
             this.groupBox_Image = new System.Windows.Forms.GroupBox();
             this.tabControlImage = new System.Windows.Forms.TabControl();
             this.tapaResultImage1 = new System.Windows.Forms.TabPage();
@@ -184,6 +195,7 @@ namespace Jet_System
             this.cogtool_RAF = new Cognex.VisionPro.ToolBlock.CogToolBlockEditV2();
             this.tab_DO = new System.Windows.Forms.TabPage();
             this.cogtool_DO = new Cognex.VisionPro.ToolBlock.CogToolBlockEditV2();
+            this.customerLights = new Jet_System.CustomerUserControl.CustomerLightsPanel();
             ((System.ComponentModel.ISupportInitialize)(this.mDisplay2Row)).BeginInit();
             this.tblMain.SuspendLayout();
             this.tblParametersAndResultShow.SuspendLayout();
@@ -233,6 +245,8 @@ namespace Jet_System
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_Beam_Inner_L)).BeginInit();
             this.tab_Beam_Inner_R.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_Beam_Inner_R)).BeginInit();
+            this.tab_TiePian.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_TiePian)).BeginInit();
             this.palSelectMeasure.SuspendLayout();
             this.groupBoxTongji.SuspendLayout();
             this.tblImageAndControl.SuspendLayout();
@@ -284,7 +298,7 @@ namespace Jet_System
             this.mDisplay2Row.MouseWheelSensitivity = 1D;
             this.mDisplay2Row.Name = "mDisplay2Row";
             this.mDisplay2Row.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("mDisplay2Row.OcxState")));
-            this.mDisplay2Row.Size = new System.Drawing.Size(335, 341);
+            this.mDisplay2Row.Size = new System.Drawing.Size(335, 316);
             this.mDisplay2Row.TabIndex = 5;
             // 
             // btnRunOnce
@@ -303,13 +317,12 @@ namespace Jet_System
             // 
             this.btnCurrentImageRun.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnCurrentImageRun.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnCurrentImageRun.Location = new System.Drawing.Point(43, 153);
+            this.btnCurrentImageRun.Location = new System.Drawing.Point(43, 123);
             this.btnCurrentImageRun.Name = "btnCurrentImageRun";
             this.btnCurrentImageRun.Size = new System.Drawing.Size(143, 48);
             this.btnCurrentImageRun.TabIndex = 7;
             this.btnCurrentImageRun.Text = "运行";
             this.btnCurrentImageRun.UseVisualStyleBackColor = false;
-            this.btnCurrentImageRun.Visible = false;
             this.btnCurrentImageRun.Click += new System.EventHandler(this.btnCurrentImageRun_Click);
             // 
             // tblMain
@@ -324,8 +337,8 @@ namespace Jet_System
             this.tblMain.Name = "tblMain";
             this.tblMain.RowCount = 1;
             this.tblMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tblMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 792F));
-            this.tblMain.Size = new System.Drawing.Size(1356, 792);
+            this.tblMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 743F));
+            this.tblMain.Size = new System.Drawing.Size(1356, 743);
             this.tblMain.TabIndex = 9;
             // 
             // tblParametersAndResultShow
@@ -341,16 +354,16 @@ namespace Jet_System
             this.tblParametersAndResultShow.RowCount = 2;
             this.tblParametersAndResultShow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tblParametersAndResultShow.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tblParametersAndResultShow.Size = new System.Drawing.Size(989, 786);
+            this.tblParametersAndResultShow.Size = new System.Drawing.Size(989, 737);
             this.tblParametersAndResultShow.TabIndex = 1;
             // 
             // group_main
             // 
             this.group_main.Controls.Add(this.tblMain2);
             this.group_main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.group_main.Location = new System.Drawing.Point(3, 160);
+            this.group_main.Location = new System.Drawing.Point(3, 150);
             this.group_main.Name = "group_main";
-            this.group_main.Size = new System.Drawing.Size(983, 623);
+            this.group_main.Size = new System.Drawing.Size(983, 584);
             this.group_main.TabIndex = 11;
             this.group_main.TabStop = false;
             this.group_main.Text = "参数";
@@ -367,7 +380,7 @@ namespace Jet_System
             this.tblMain2.Name = "tblMain2";
             this.tblMain2.RowCount = 1;
             this.tblMain2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tblMain2.Size = new System.Drawing.Size(977, 603);
+            this.tblMain2.Size = new System.Drawing.Size(977, 564);
             this.tblMain2.TabIndex = 2;
             // 
             // tabControl_Main
@@ -387,6 +400,7 @@ namespace Jet_System
             this.tabControl_Main.Controls.Add(this.tab_Beam_Height_R);
             this.tabControl_Main.Controls.Add(this.tab_Beam_Inner_L);
             this.tabControl_Main.Controls.Add(this.tab_Beam_Inner_R);
+            this.tabControl_Main.Controls.Add(this.tab_TiePian);
             this.tabControl_Main.Font = new System.Drawing.Font("宋体", 9F);
             this.tabControl_Main.Location = new System.Drawing.Point(178, 3);
             this.tabControl_Main.Name = "tabControl_Main";
@@ -422,17 +436,21 @@ namespace Jet_System
             // 
             // dataGrid_Beam_Touch_Window_L_L
             // 
+            this.dataGrid_Beam_Touch_Window_L_L.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGrid_Beam_Touch_Window_L_L.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGrid_Beam_Touch_Window_L_L.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGrid_Beam_Touch_Window_L_L.Location = new System.Drawing.Point(3, 3);
             this.dataGrid_Beam_Touch_Window_L_L.Name = "dataGrid_Beam_Touch_Window_L_L";
             this.dataGrid_Beam_Touch_Window_L_L.RowTemplate.Height = 23;
             this.dataGrid_Beam_Touch_Window_L_L.Size = new System.Drawing.Size(568, 446);
             this.dataGrid_Beam_Touch_Window_L_L.TabIndex = 0;
+            this.dataGrid_Beam_Touch_Window_L_L.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_Beam_Touch_Window_L_L_CellClick);
             // 
             // userControlSetMaxAndMin1
             // 
             this.userControlSetMaxAndMin1.CurrentGrid = this.dataGrid_Beam_Touch_Window_L_L;
-            this.userControlSetMaxAndMin1.Location = new System.Drawing.Point(577, 3);
+            this.userControlSetMaxAndMin1.Location = new System.Drawing.Point(578, 4);
+            this.userControlSetMaxAndMin1.Margin = new System.Windows.Forms.Padding(4);
             this.userControlSetMaxAndMin1.Name = "userControlSetMaxAndMin1";
             this.userControlSetMaxAndMin1.Size = new System.Drawing.Size(164, 320);
             this.userControlSetMaxAndMin1.TabIndex = 1;
@@ -466,9 +484,10 @@ namespace Jet_System
             // userControlSetMaxAndMin2
             // 
             this.userControlSetMaxAndMin2.CurrentGrid = this.dataGrid_Beam_Touch_Window_L_R;
-            this.userControlSetMaxAndMin2.Location = new System.Drawing.Point(549, 3);
+            this.userControlSetMaxAndMin2.Location = new System.Drawing.Point(550, 4);
+            this.userControlSetMaxAndMin2.Margin = new System.Windows.Forms.Padding(4);
             this.userControlSetMaxAndMin2.Name = "userControlSetMaxAndMin2";
-            this.userControlSetMaxAndMin2.Size = new System.Drawing.Size(164, 320);
+            this.userControlSetMaxAndMin2.Size = new System.Drawing.Size(37, 51);
             this.userControlSetMaxAndMin2.TabIndex = 1;
             this.userControlSetMaxAndMin2.Visible = false;
             // 
@@ -478,8 +497,9 @@ namespace Jet_System
             this.dataGrid_Beam_Touch_Window_L_R.Location = new System.Drawing.Point(3, 3);
             this.dataGrid_Beam_Touch_Window_L_R.Name = "dataGrid_Beam_Touch_Window_L_R";
             this.dataGrid_Beam_Touch_Window_L_R.RowTemplate.Height = 23;
-            this.dataGrid_Beam_Touch_Window_L_R.Size = new System.Drawing.Size(540, 427);
+            this.dataGrid_Beam_Touch_Window_L_R.Size = new System.Drawing.Size(540, 362);
             this.dataGrid_Beam_Touch_Window_L_R.TabIndex = 1;
+            this.dataGrid_Beam_Touch_Window_L_R.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_Beam_Touch_Window_L_L_CellClick);
             // 
             // tab_Beam_Tip_To_Window_L
             // 
@@ -509,9 +529,10 @@ namespace Jet_System
             // userControlSetMaxAndMin3
             // 
             this.userControlSetMaxAndMin3.CurrentGrid = this.dataGrid_Beam_Tip_To_Window_L;
-            this.userControlSetMaxAndMin3.Location = new System.Drawing.Point(578, 3);
+            this.userControlSetMaxAndMin3.Location = new System.Drawing.Point(579, 4);
+            this.userControlSetMaxAndMin3.Margin = new System.Windows.Forms.Padding(4);
             this.userControlSetMaxAndMin3.Name = "userControlSetMaxAndMin3";
-            this.userControlSetMaxAndMin3.Size = new System.Drawing.Size(164, 320);
+            this.userControlSetMaxAndMin3.Size = new System.Drawing.Size(32, 51);
             this.userControlSetMaxAndMin3.TabIndex = 1;
             this.userControlSetMaxAndMin3.Visible = false;
             // 
@@ -521,8 +542,9 @@ namespace Jet_System
             this.dataGrid_Beam_Tip_To_Window_L.Location = new System.Drawing.Point(3, 3);
             this.dataGrid_Beam_Tip_To_Window_L.Name = "dataGrid_Beam_Tip_To_Window_L";
             this.dataGrid_Beam_Tip_To_Window_L.RowTemplate.Height = 23;
-            this.dataGrid_Beam_Tip_To_Window_L.Size = new System.Drawing.Size(569, 427);
+            this.dataGrid_Beam_Tip_To_Window_L.Size = new System.Drawing.Size(569, 468);
             this.dataGrid_Beam_Tip_To_Window_L.TabIndex = 2;
+            this.dataGrid_Beam_Tip_To_Window_L.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_Beam_Touch_Window_L_L_CellClick);
             // 
             // tab_Beam_Touch_Window_R_L
             // 
@@ -553,9 +575,10 @@ namespace Jet_System
             // userControlSetMaxAndMin4
             // 
             this.userControlSetMaxAndMin4.CurrentGrid = this.dataGrid_Beam_Touch_Window_R_L;
-            this.userControlSetMaxAndMin4.Location = new System.Drawing.Point(582, 3);
+            this.userControlSetMaxAndMin4.Location = new System.Drawing.Point(583, 4);
+            this.userControlSetMaxAndMin4.Margin = new System.Windows.Forms.Padding(4);
             this.userControlSetMaxAndMin4.Name = "userControlSetMaxAndMin4";
-            this.userControlSetMaxAndMin4.Size = new System.Drawing.Size(164, 320);
+            this.userControlSetMaxAndMin4.Size = new System.Drawing.Size(31, 51);
             this.userControlSetMaxAndMin4.TabIndex = 1;
             this.userControlSetMaxAndMin4.Visible = false;
             // 
@@ -565,8 +588,9 @@ namespace Jet_System
             this.dataGrid_Beam_Touch_Window_R_L.Location = new System.Drawing.Point(3, 3);
             this.dataGrid_Beam_Touch_Window_R_L.Name = "dataGrid_Beam_Touch_Window_R_L";
             this.dataGrid_Beam_Touch_Window_R_L.RowTemplate.Height = 23;
-            this.dataGrid_Beam_Touch_Window_R_L.Size = new System.Drawing.Size(573, 427);
+            this.dataGrid_Beam_Touch_Window_R_L.Size = new System.Drawing.Size(573, 461);
             this.dataGrid_Beam_Touch_Window_R_L.TabIndex = 2;
+            this.dataGrid_Beam_Touch_Window_R_L.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_Beam_Touch_Window_L_L_CellClick);
             // 
             // tab_Beam_Touch_Window_R_R
             // 
@@ -596,9 +620,10 @@ namespace Jet_System
             // userControlSetMaxAndMin5
             // 
             this.userControlSetMaxAndMin5.CurrentGrid = this.dataGrid_Beam_Touch_Window_R_R;
-            this.userControlSetMaxAndMin5.Location = new System.Drawing.Point(574, 3);
+            this.userControlSetMaxAndMin5.Location = new System.Drawing.Point(575, 4);
+            this.userControlSetMaxAndMin5.Margin = new System.Windows.Forms.Padding(4);
             this.userControlSetMaxAndMin5.Name = "userControlSetMaxAndMin5";
-            this.userControlSetMaxAndMin5.Size = new System.Drawing.Size(164, 320);
+            this.userControlSetMaxAndMin5.Size = new System.Drawing.Size(32, 51);
             this.userControlSetMaxAndMin5.TabIndex = 1;
             this.userControlSetMaxAndMin5.Visible = false;
             // 
@@ -608,8 +633,9 @@ namespace Jet_System
             this.dataGrid_Beam_Touch_Window_R_R.Location = new System.Drawing.Point(3, 3);
             this.dataGrid_Beam_Touch_Window_R_R.Name = "dataGrid_Beam_Touch_Window_R_R";
             this.dataGrid_Beam_Touch_Window_R_R.RowTemplate.Height = 23;
-            this.dataGrid_Beam_Touch_Window_R_R.Size = new System.Drawing.Size(565, 427);
+            this.dataGrid_Beam_Touch_Window_R_R.Size = new System.Drawing.Size(565, 468);
             this.dataGrid_Beam_Touch_Window_R_R.TabIndex = 2;
+            this.dataGrid_Beam_Touch_Window_R_R.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_Beam_Touch_Window_L_L_CellClick);
             // 
             // tab_Beam_Tip_To_Window_R
             // 
@@ -639,9 +665,10 @@ namespace Jet_System
             // userControlSetMaxAndMin6
             // 
             this.userControlSetMaxAndMin6.CurrentGrid = this.dataGrid_Beam_Tip_To_Window_R;
-            this.userControlSetMaxAndMin6.Location = new System.Drawing.Point(571, 3);
+            this.userControlSetMaxAndMin6.Location = new System.Drawing.Point(572, 4);
+            this.userControlSetMaxAndMin6.Margin = new System.Windows.Forms.Padding(4);
             this.userControlSetMaxAndMin6.Name = "userControlSetMaxAndMin6";
-            this.userControlSetMaxAndMin6.Size = new System.Drawing.Size(164, 320);
+            this.userControlSetMaxAndMin6.Size = new System.Drawing.Size(33, 51);
             this.userControlSetMaxAndMin6.TabIndex = 1;
             this.userControlSetMaxAndMin6.Visible = false;
             // 
@@ -651,8 +678,9 @@ namespace Jet_System
             this.dataGrid_Beam_Tip_To_Window_R.Location = new System.Drawing.Point(3, 3);
             this.dataGrid_Beam_Tip_To_Window_R.Name = "dataGrid_Beam_Tip_To_Window_R";
             this.dataGrid_Beam_Tip_To_Window_R.RowTemplate.Height = 23;
-            this.dataGrid_Beam_Tip_To_Window_R.Size = new System.Drawing.Size(561, 427);
+            this.dataGrid_Beam_Tip_To_Window_R.Size = new System.Drawing.Size(98, 53);
             this.dataGrid_Beam_Tip_To_Window_R.TabIndex = 2;
+            this.dataGrid_Beam_Tip_To_Window_R.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_Beam_Touch_Window_L_L_CellClick);
             // 
             // tab_Beam_Height_Difference
             // 
@@ -682,9 +710,10 @@ namespace Jet_System
             // userControlSetMaxAndMin7
             // 
             this.userControlSetMaxAndMin7.CurrentGrid = this.dataGrid_Beam_Height_Difference;
-            this.userControlSetMaxAndMin7.Location = new System.Drawing.Point(585, 3);
+            this.userControlSetMaxAndMin7.Location = new System.Drawing.Point(586, 4);
+            this.userControlSetMaxAndMin7.Margin = new System.Windows.Forms.Padding(4);
             this.userControlSetMaxAndMin7.Name = "userControlSetMaxAndMin7";
-            this.userControlSetMaxAndMin7.Size = new System.Drawing.Size(164, 320);
+            this.userControlSetMaxAndMin7.Size = new System.Drawing.Size(31, 51);
             this.userControlSetMaxAndMin7.TabIndex = 1;
             this.userControlSetMaxAndMin7.Visible = false;
             // 
@@ -694,8 +723,9 @@ namespace Jet_System
             this.dataGrid_Beam_Height_Difference.Location = new System.Drawing.Point(3, 3);
             this.dataGrid_Beam_Height_Difference.Name = "dataGrid_Beam_Height_Difference";
             this.dataGrid_Beam_Height_Difference.RowTemplate.Height = 23;
-            this.dataGrid_Beam_Height_Difference.Size = new System.Drawing.Size(575, 427);
+            this.dataGrid_Beam_Height_Difference.Size = new System.Drawing.Size(100, 53);
             this.dataGrid_Beam_Height_Difference.TabIndex = 2;
+            this.dataGrid_Beam_Height_Difference.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_Beam_Touch_Window_L_L_CellClick);
             // 
             // tab_Shield_Flatness
             // 
@@ -725,9 +755,10 @@ namespace Jet_System
             // userControlSetMaxAndMin8
             // 
             this.userControlSetMaxAndMin8.CurrentGrid = this.dataGrid_Shield_Flatness;
-            this.userControlSetMaxAndMin8.Location = new System.Drawing.Point(590, 3);
+            this.userControlSetMaxAndMin8.Location = new System.Drawing.Point(591, 4);
+            this.userControlSetMaxAndMin8.Margin = new System.Windows.Forms.Padding(4);
             this.userControlSetMaxAndMin8.Name = "userControlSetMaxAndMin8";
-            this.userControlSetMaxAndMin8.Size = new System.Drawing.Size(164, 320);
+            this.userControlSetMaxAndMin8.Size = new System.Drawing.Size(29, 51);
             this.userControlSetMaxAndMin8.TabIndex = 1;
             this.userControlSetMaxAndMin8.Visible = false;
             // 
@@ -737,8 +768,9 @@ namespace Jet_System
             this.dataGrid_Shield_Flatness.Location = new System.Drawing.Point(3, 3);
             this.dataGrid_Shield_Flatness.Name = "dataGrid_Shield_Flatness";
             this.dataGrid_Shield_Flatness.RowTemplate.Height = 23;
-            this.dataGrid_Shield_Flatness.Size = new System.Drawing.Size(569, 427);
+            this.dataGrid_Shield_Flatness.Size = new System.Drawing.Size(101, 53);
             this.dataGrid_Shield_Flatness.TabIndex = 2;
+            this.dataGrid_Shield_Flatness.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_Beam_Touch_Window_L_L_CellClick);
             // 
             // tab_Cross_Shield_TP
             // 
@@ -768,20 +800,23 @@ namespace Jet_System
             // userControlSetMaxAndMin9
             // 
             this.userControlSetMaxAndMin9.CurrentGrid = this.dataGrid_Cross_Shield_TP;
-            this.userControlSetMaxAndMin9.Location = new System.Drawing.Point(574, 3);
+            this.userControlSetMaxAndMin9.Location = new System.Drawing.Point(575, 4);
+            this.userControlSetMaxAndMin9.Margin = new System.Windows.Forms.Padding(4);
             this.userControlSetMaxAndMin9.Name = "userControlSetMaxAndMin9";
-            this.userControlSetMaxAndMin9.Size = new System.Drawing.Size(164, 320);
+            this.userControlSetMaxAndMin9.Size = new System.Drawing.Size(32, 51);
             this.userControlSetMaxAndMin9.TabIndex = 1;
             this.userControlSetMaxAndMin9.Visible = false;
             // 
             // dataGrid_Cross_Shield_TP
             // 
+            this.dataGrid_Cross_Shield_TP.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dataGrid_Cross_Shield_TP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGrid_Cross_Shield_TP.Location = new System.Drawing.Point(3, 3);
             this.dataGrid_Cross_Shield_TP.Name = "dataGrid_Cross_Shield_TP";
             this.dataGrid_Cross_Shield_TP.RowTemplate.Height = 23;
-            this.dataGrid_Cross_Shield_TP.Size = new System.Drawing.Size(565, 427);
+            this.dataGrid_Cross_Shield_TP.Size = new System.Drawing.Size(98, 53);
             this.dataGrid_Cross_Shield_TP.TabIndex = 2;
+            this.dataGrid_Cross_Shield_TP.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_Beam_Touch_Window_L_L_CellClick);
             // 
             // tab_Wafer_Thickness
             // 
@@ -811,9 +846,10 @@ namespace Jet_System
             // userControlSetMaxAndMin10
             // 
             this.userControlSetMaxAndMin10.CurrentGrid = this.dataGrid_Wafer_Thickness;
-            this.userControlSetMaxAndMin10.Location = new System.Drawing.Point(587, 3);
+            this.userControlSetMaxAndMin10.Location = new System.Drawing.Point(588, 4);
+            this.userControlSetMaxAndMin10.Margin = new System.Windows.Forms.Padding(4);
             this.userControlSetMaxAndMin10.Name = "userControlSetMaxAndMin10";
-            this.userControlSetMaxAndMin10.Size = new System.Drawing.Size(164, 320);
+            this.userControlSetMaxAndMin10.Size = new System.Drawing.Size(30, 51);
             this.userControlSetMaxAndMin10.TabIndex = 1;
             this.userControlSetMaxAndMin10.Visible = false;
             // 
@@ -823,8 +859,9 @@ namespace Jet_System
             this.dataGrid_Wafer_Thickness.Location = new System.Drawing.Point(3, 3);
             this.dataGrid_Wafer_Thickness.Name = "dataGrid_Wafer_Thickness";
             this.dataGrid_Wafer_Thickness.RowTemplate.Height = 23;
-            this.dataGrid_Wafer_Thickness.Size = new System.Drawing.Size(577, 427);
+            this.dataGrid_Wafer_Thickness.Size = new System.Drawing.Size(100, 53);
             this.dataGrid_Wafer_Thickness.TabIndex = 2;
+            this.dataGrid_Wafer_Thickness.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_Beam_Touch_Window_L_L_CellClick);
             // 
             // tab_Shield_Cross_Angle
             // 
@@ -854,9 +891,10 @@ namespace Jet_System
             // userControlSetMaxAndMin11
             // 
             this.userControlSetMaxAndMin11.CurrentGrid = this.dataGrid_Shield_Cross_Angle;
-            this.userControlSetMaxAndMin11.Location = new System.Drawing.Point(577, 3);
+            this.userControlSetMaxAndMin11.Location = new System.Drawing.Point(578, 4);
+            this.userControlSetMaxAndMin11.Margin = new System.Windows.Forms.Padding(4);
             this.userControlSetMaxAndMin11.Name = "userControlSetMaxAndMin11";
-            this.userControlSetMaxAndMin11.Size = new System.Drawing.Size(164, 320);
+            this.userControlSetMaxAndMin11.Size = new System.Drawing.Size(32, 51);
             this.userControlSetMaxAndMin11.TabIndex = 1;
             this.userControlSetMaxAndMin11.Visible = false;
             // 
@@ -866,8 +904,9 @@ namespace Jet_System
             this.dataGrid_Shield_Cross_Angle.Location = new System.Drawing.Point(3, 3);
             this.dataGrid_Shield_Cross_Angle.Name = "dataGrid_Shield_Cross_Angle";
             this.dataGrid_Shield_Cross_Angle.RowTemplate.Height = 23;
-            this.dataGrid_Shield_Cross_Angle.Size = new System.Drawing.Size(555, 427);
+            this.dataGrid_Shield_Cross_Angle.Size = new System.Drawing.Size(98, 53);
             this.dataGrid_Shield_Cross_Angle.TabIndex = 3;
+            this.dataGrid_Shield_Cross_Angle.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_Beam_Touch_Window_L_L_CellClick);
             // 
             // tab_Beam_Height_L
             // 
@@ -897,9 +936,10 @@ namespace Jet_System
             // userControlSetMaxAndMin12
             // 
             this.userControlSetMaxAndMin12.CurrentGrid = this.dataGrid_Beam_Height_L;
-            this.userControlSetMaxAndMin12.Location = new System.Drawing.Point(599, 3);
+            this.userControlSetMaxAndMin12.Location = new System.Drawing.Point(600, 4);
+            this.userControlSetMaxAndMin12.Margin = new System.Windows.Forms.Padding(4);
             this.userControlSetMaxAndMin12.Name = "userControlSetMaxAndMin12";
-            this.userControlSetMaxAndMin12.Size = new System.Drawing.Size(164, 320);
+            this.userControlSetMaxAndMin12.Size = new System.Drawing.Size(28, 51);
             this.userControlSetMaxAndMin12.TabIndex = 1;
             this.userControlSetMaxAndMin12.Visible = false;
             // 
@@ -909,8 +949,9 @@ namespace Jet_System
             this.dataGrid_Beam_Height_L.Location = new System.Drawing.Point(3, 3);
             this.dataGrid_Beam_Height_L.Name = "dataGrid_Beam_Height_L";
             this.dataGrid_Beam_Height_L.RowTemplate.Height = 23;
-            this.dataGrid_Beam_Height_L.Size = new System.Drawing.Size(590, 427);
+            this.dataGrid_Beam_Height_L.Size = new System.Drawing.Size(103, 53);
             this.dataGrid_Beam_Height_L.TabIndex = 4;
+            this.dataGrid_Beam_Height_L.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_Beam_Touch_Window_L_L_CellClick);
             // 
             // tab_Beam_Height_R
             // 
@@ -940,9 +981,10 @@ namespace Jet_System
             // userControlSetMaxAndMin13
             // 
             this.userControlSetMaxAndMin13.CurrentGrid = this.dataGrid_Beam_Height_R;
-            this.userControlSetMaxAndMin13.Location = new System.Drawing.Point(577, 3);
+            this.userControlSetMaxAndMin13.Location = new System.Drawing.Point(578, 4);
+            this.userControlSetMaxAndMin13.Margin = new System.Windows.Forms.Padding(4);
             this.userControlSetMaxAndMin13.Name = "userControlSetMaxAndMin13";
-            this.userControlSetMaxAndMin13.Size = new System.Drawing.Size(164, 320);
+            this.userControlSetMaxAndMin13.Size = new System.Drawing.Size(32, 51);
             this.userControlSetMaxAndMin13.TabIndex = 1;
             this.userControlSetMaxAndMin13.Visible = false;
             // 
@@ -952,8 +994,9 @@ namespace Jet_System
             this.dataGrid_Beam_Height_R.Location = new System.Drawing.Point(3, 3);
             this.dataGrid_Beam_Height_R.Name = "dataGrid_Beam_Height_R";
             this.dataGrid_Beam_Height_R.RowTemplate.Height = 23;
-            this.dataGrid_Beam_Height_R.Size = new System.Drawing.Size(567, 427);
+            this.dataGrid_Beam_Height_R.Size = new System.Drawing.Size(98, 53);
             this.dataGrid_Beam_Height_R.TabIndex = 4;
+            this.dataGrid_Beam_Height_R.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_Beam_Touch_Window_L_L_CellClick);
             // 
             // tab_Beam_Inner_L
             // 
@@ -973,6 +1016,7 @@ namespace Jet_System
             this.dataGrid_Beam_Inner_L.RowTemplate.Height = 23;
             this.dataGrid_Beam_Inner_L.Size = new System.Drawing.Size(568, 446);
             this.dataGrid_Beam_Inner_L.TabIndex = 1;
+            this.dataGrid_Beam_Inner_L.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_Beam_Touch_Window_L_L_CellClick);
             // 
             // tab_Beam_Inner_R
             // 
@@ -992,9 +1036,31 @@ namespace Jet_System
             this.dataGrid_Beam_Inner_R.RowTemplate.Height = 23;
             this.dataGrid_Beam_Inner_R.Size = new System.Drawing.Size(568, 446);
             this.dataGrid_Beam_Inner_R.TabIndex = 1;
+            this.dataGrid_Beam_Inner_R.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_Beam_Touch_Window_L_L_CellClick);
+            // 
+            // tab_TiePian
+            // 
+            this.tab_TiePian.Controls.Add(this.dataGrid_TiePian);
+            this.tab_TiePian.Location = new System.Drawing.Point(4, 22);
+            this.tab_TiePian.Name = "tab_TiePian";
+            this.tab_TiePian.Size = new System.Drawing.Size(788, 474);
+            this.tab_TiePian.TabIndex = 21;
+            this.tab_TiePian.Text = "TiePian";
+            this.tab_TiePian.UseVisualStyleBackColor = true;
+            // 
+            // dataGrid_TiePian
+            // 
+            this.dataGrid_TiePian.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGrid_TiePian.Location = new System.Drawing.Point(4, 3);
+            this.dataGrid_TiePian.Name = "dataGrid_TiePian";
+            this.dataGrid_TiePian.RowTemplate.Height = 23;
+            this.dataGrid_TiePian.Size = new System.Drawing.Size(568, 446);
+            this.dataGrid_TiePian.TabIndex = 2;
+            this.dataGrid_TiePian.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_Beam_Touch_Window_L_L_CellClick);
             // 
             // palSelectMeasure
             // 
+            this.palSelectMeasure.Controls.Add(this.ra_TiePian);
             this.palSelectMeasure.Controls.Add(this.ra_Beam_Inner_L);
             this.palSelectMeasure.Controls.Add(this.ra_Beam_Inner_R);
             this.palSelectMeasure.Controls.Add(this.ra_Beam_Height_L);
@@ -1013,40 +1079,53 @@ namespace Jet_System
             this.palSelectMeasure.Dock = System.Windows.Forms.DockStyle.Fill;
             this.palSelectMeasure.Location = new System.Drawing.Point(3, 3);
             this.palSelectMeasure.Name = "palSelectMeasure";
-            this.palSelectMeasure.Size = new System.Drawing.Size(169, 597);
+            this.palSelectMeasure.Size = new System.Drawing.Size(169, 558);
             this.palSelectMeasure.TabIndex = 2;
+            // 
+            // ra_TiePian
+            // 
+            this.ra_TiePian.AutoSize = true;
+            this.ra_TiePian.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ra_TiePian.Location = new System.Drawing.Point(3, 493);
+            this.ra_TiePian.Name = "ra_TiePian";
+            this.ra_TiePian.Size = new System.Drawing.Size(74, 18);
+            this.ra_TiePian.TabIndex = 24;
+            this.ra_TiePian.TabStop = true;
+            this.ra_TiePian.Text = "TiePian";
+            this.ra_TiePian.UseVisualStyleBackColor = true;
+            this.ra_TiePian.CheckedChanged += new System.EventHandler(this.ra_Beam_Touch_Window_L_L_CheckedChanged);
             // 
             // ra_Beam_Inner_L
             // 
             this.ra_Beam_Inner_L.AutoSize = true;
             this.ra_Beam_Inner_L.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ra_Beam_Inner_L.Location = new System.Drawing.Point(-2, 388);
+            this.ra_Beam_Inner_L.Location = new System.Drawing.Point(3, 333);
             this.ra_Beam_Inner_L.Name = "ra_Beam_Inner_L";
             this.ra_Beam_Inner_L.Size = new System.Drawing.Size(109, 18);
             this.ra_Beam_Inner_L.TabIndex = 23;
             this.ra_Beam_Inner_L.TabStop = true;
             this.ra_Beam_Inner_L.Text = "Beam_Inner_L";
             this.ra_Beam_Inner_L.UseVisualStyleBackColor = true;
-            this.ra_Beam_Inner_L.CheckedChanged += ra_Beam_Touch_Window_L_L_CheckedChanged;
+            this.ra_Beam_Inner_L.CheckedChanged += new System.EventHandler(this.ra_Beam_Touch_Window_L_L_CheckedChanged);
             // 
             // ra_Beam_Inner_R
             // 
             this.ra_Beam_Inner_R.AutoSize = true;
             this.ra_Beam_Inner_R.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ra_Beam_Inner_R.Location = new System.Drawing.Point(-2, 350);
+            this.ra_Beam_Inner_R.Location = new System.Drawing.Point(3, 301);
             this.ra_Beam_Inner_R.Name = "ra_Beam_Inner_R";
             this.ra_Beam_Inner_R.Size = new System.Drawing.Size(109, 18);
             this.ra_Beam_Inner_R.TabIndex = 22;
             this.ra_Beam_Inner_R.TabStop = true;
             this.ra_Beam_Inner_R.Text = "Beam_Inner_R";
             this.ra_Beam_Inner_R.UseVisualStyleBackColor = true;
-            this.ra_Beam_Inner_R.CheckedChanged += ra_Beam_Touch_Window_L_L_CheckedChanged;
+            this.ra_Beam_Inner_R.CheckedChanged += new System.EventHandler(this.ra_Beam_Touch_Window_L_L_CheckedChanged);
             // 
             // ra_Beam_Height_L
             // 
             this.ra_Beam_Height_L.AutoSize = true;
             this.ra_Beam_Height_L.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ra_Beam_Height_L.Location = new System.Drawing.Point(-2, 317);
+            this.ra_Beam_Height_L.Location = new System.Drawing.Point(3, 269);
             this.ra_Beam_Height_L.Name = "ra_Beam_Height_L";
             this.ra_Beam_Height_L.Size = new System.Drawing.Size(116, 18);
             this.ra_Beam_Height_L.TabIndex = 21;
@@ -1059,7 +1138,7 @@ namespace Jet_System
             // 
             this.ra_Beam_Height_R.AutoSize = true;
             this.ra_Beam_Height_R.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ra_Beam_Height_R.Location = new System.Drawing.Point(-2, 279);
+            this.ra_Beam_Height_R.Location = new System.Drawing.Point(3, 237);
             this.ra_Beam_Height_R.Name = "ra_Beam_Height_R";
             this.ra_Beam_Height_R.Size = new System.Drawing.Size(116, 18);
             this.ra_Beam_Height_R.TabIndex = 20;
@@ -1072,7 +1151,7 @@ namespace Jet_System
             // 
             this.ra_Shield_Cross_Angle.AutoSize = true;
             this.ra_Shield_Cross_Angle.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ra_Shield_Cross_Angle.Location = new System.Drawing.Point(0, 544);
+            this.ra_Shield_Cross_Angle.Location = new System.Drawing.Point(3, 461);
             this.ra_Shield_Cross_Angle.Name = "ra_Shield_Cross_Angle";
             this.ra_Shield_Cross_Angle.Size = new System.Drawing.Size(151, 18);
             this.ra_Shield_Cross_Angle.TabIndex = 19;
@@ -1085,7 +1164,7 @@ namespace Jet_System
             // 
             this.ra_Wafer_Thickness.AutoSize = true;
             this.ra_Wafer_Thickness.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ra_Wafer_Thickness.Location = new System.Drawing.Point(0, 506);
+            this.ra_Wafer_Thickness.Location = new System.Drawing.Point(3, 429);
             this.ra_Wafer_Thickness.Name = "ra_Wafer_Thickness";
             this.ra_Wafer_Thickness.Size = new System.Drawing.Size(130, 18);
             this.ra_Wafer_Thickness.TabIndex = 18;
@@ -1098,7 +1177,7 @@ namespace Jet_System
             // 
             this.ra_Cross_Shield_TP.AutoSize = true;
             this.ra_Cross_Shield_TP.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ra_Cross_Shield_TP.Location = new System.Drawing.Point(0, 468);
+            this.ra_Cross_Shield_TP.Location = new System.Drawing.Point(3, 397);
             this.ra_Cross_Shield_TP.Name = "ra_Cross_Shield_TP";
             this.ra_Cross_Shield_TP.Size = new System.Drawing.Size(130, 18);
             this.ra_Cross_Shield_TP.TabIndex = 17;
@@ -1111,7 +1190,7 @@ namespace Jet_System
             // 
             this.ra_Shield_Flatness.AutoSize = true;
             this.ra_Shield_Flatness.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ra_Shield_Flatness.Location = new System.Drawing.Point(0, 430);
+            this.ra_Shield_Flatness.Location = new System.Drawing.Point(3, 365);
             this.ra_Shield_Flatness.Name = "ra_Shield_Flatness";
             this.ra_Shield_Flatness.Size = new System.Drawing.Size(130, 18);
             this.ra_Shield_Flatness.TabIndex = 16;
@@ -1124,7 +1203,7 @@ namespace Jet_System
             // 
             this.ra_Beam_Height_Difference.AutoSize = true;
             this.ra_Beam_Height_Difference.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ra_Beam_Height_Difference.Location = new System.Drawing.Point(-2, 241);
+            this.ra_Beam_Height_Difference.Location = new System.Drawing.Point(3, 205);
             this.ra_Beam_Height_Difference.Name = "ra_Beam_Height_Difference";
             this.ra_Beam_Height_Difference.Size = new System.Drawing.Size(179, 18);
             this.ra_Beam_Height_Difference.TabIndex = 15;
@@ -1137,7 +1216,7 @@ namespace Jet_System
             // 
             this.ra_Beam_Tip_To_Window_R.AutoSize = true;
             this.ra_Beam_Tip_To_Window_R.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ra_Beam_Tip_To_Window_R.Location = new System.Drawing.Point(-2, 203);
+            this.ra_Beam_Tip_To_Window_R.Location = new System.Drawing.Point(3, 173);
             this.ra_Beam_Tip_To_Window_R.Name = "ra_Beam_Tip_To_Window_R";
             this.ra_Beam_Tip_To_Window_R.Size = new System.Drawing.Size(165, 18);
             this.ra_Beam_Tip_To_Window_R.TabIndex = 14;
@@ -1150,7 +1229,7 @@ namespace Jet_System
             // 
             this.ra_Beam_Touch_Window_R_R.AutoSize = true;
             this.ra_Beam_Touch_Window_R_R.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ra_Beam_Touch_Window_R_R.Location = new System.Drawing.Point(-2, 165);
+            this.ra_Beam_Touch_Window_R_R.Location = new System.Drawing.Point(3, 141);
             this.ra_Beam_Touch_Window_R_R.Name = "ra_Beam_Touch_Window_R_R";
             this.ra_Beam_Touch_Window_R_R.Size = new System.Drawing.Size(172, 18);
             this.ra_Beam_Touch_Window_R_R.TabIndex = 13;
@@ -1163,7 +1242,7 @@ namespace Jet_System
             // 
             this.ra_Beam_Touch_Window_R_L.AutoSize = true;
             this.ra_Beam_Touch_Window_R_L.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ra_Beam_Touch_Window_R_L.Location = new System.Drawing.Point(-2, 127);
+            this.ra_Beam_Touch_Window_R_L.Location = new System.Drawing.Point(3, 109);
             this.ra_Beam_Touch_Window_R_L.Name = "ra_Beam_Touch_Window_R_L";
             this.ra_Beam_Touch_Window_R_L.Size = new System.Drawing.Size(172, 18);
             this.ra_Beam_Touch_Window_R_L.TabIndex = 12;
@@ -1176,7 +1255,7 @@ namespace Jet_System
             // 
             this.ra_Beam_Tip_To_Window_L.AutoSize = true;
             this.ra_Beam_Tip_To_Window_L.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ra_Beam_Tip_To_Window_L.Location = new System.Drawing.Point(-2, 89);
+            this.ra_Beam_Tip_To_Window_L.Location = new System.Drawing.Point(3, 77);
             this.ra_Beam_Tip_To_Window_L.Name = "ra_Beam_Tip_To_Window_L";
             this.ra_Beam_Tip_To_Window_L.Size = new System.Drawing.Size(165, 18);
             this.ra_Beam_Tip_To_Window_L.TabIndex = 11;
@@ -1189,7 +1268,7 @@ namespace Jet_System
             // 
             this.ra_Beam_Touch_Window_L_R.AutoSize = true;
             this.ra_Beam_Touch_Window_L_R.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ra_Beam_Touch_Window_L_R.Location = new System.Drawing.Point(-2, 51);
+            this.ra_Beam_Touch_Window_L_R.Location = new System.Drawing.Point(3, 45);
             this.ra_Beam_Touch_Window_L_R.Name = "ra_Beam_Touch_Window_L_R";
             this.ra_Beam_Touch_Window_L_R.Size = new System.Drawing.Size(172, 18);
             this.ra_Beam_Touch_Window_L_R.TabIndex = 10;
@@ -1203,7 +1282,7 @@ namespace Jet_System
             this.ra_Beam_Touch_Window_L_L.AutoSize = true;
             this.ra_Beam_Touch_Window_L_L.BackColor = System.Drawing.SystemColors.Control;
             this.ra_Beam_Touch_Window_L_L.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ra_Beam_Touch_Window_L_L.Location = new System.Drawing.Point(-2, 13);
+            this.ra_Beam_Touch_Window_L_L.Location = new System.Drawing.Point(3, 13);
             this.ra_Beam_Touch_Window_L_L.Name = "ra_Beam_Touch_Window_L_L";
             this.ra_Beam_Touch_Window_L_L.Size = new System.Drawing.Size(172, 18);
             this.ra_Beam_Touch_Window_L_L.TabIndex = 1;
@@ -1214,6 +1293,11 @@ namespace Jet_System
             // 
             // groupBoxTongji
             // 
+            this.groupBoxTongji.Controls.Add(this.label7);
+            this.groupBoxTongji.Controls.Add(this.LabelWaveDataCnt);
+            this.groupBoxTongji.Controls.Add(this.btnClearaHistory);
+            this.groupBoxTongji.Controls.Add(this.textBox3);
+            this.groupBoxTongji.Controls.Add(this.BtnWave);
             this.groupBoxTongji.Controls.Add(this.btnSave);
             this.groupBoxTongji.Controls.Add(this.lbl_DO_OKNG);
             this.groupBoxTongji.Controls.Add(this.lbl_RAF_OKNG);
@@ -1239,16 +1323,61 @@ namespace Jet_System
             this.groupBoxTongji.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBoxTongji.Location = new System.Drawing.Point(3, 3);
             this.groupBoxTongji.Name = "groupBoxTongji";
-            this.groupBoxTongji.Size = new System.Drawing.Size(983, 151);
+            this.groupBoxTongji.Size = new System.Drawing.Size(983, 141);
             this.groupBoxTongji.TabIndex = 12;
             this.groupBoxTongji.TabStop = false;
             this.groupBoxTongji.Text = "统计";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(870, 126);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(29, 12);
+            this.label7.TabIndex = 32;
+            this.label7.Text = "行数";
+            // 
+            // LabelWaveDataCnt
+            // 
+            this.LabelWaveDataCnt.AutoSize = true;
+            this.LabelWaveDataCnt.Location = new System.Drawing.Point(873, 97);
+            this.LabelWaveDataCnt.Name = "LabelWaveDataCnt";
+            this.LabelWaveDataCnt.Size = new System.Drawing.Size(71, 12);
+            this.LabelWaveDataCnt.TabIndex = 31;
+            this.LabelWaveDataCnt.Text = "共有0个数据";
+            // 
+            // btnClearaHistory
+            // 
+            this.btnClearaHistory.Location = new System.Drawing.Point(720, 121);
+            this.btnClearaHistory.Name = "btnClearaHistory";
+            this.btnClearaHistory.Size = new System.Drawing.Size(101, 23);
+            this.btnClearaHistory.TabIndex = 30;
+            this.btnClearaHistory.Text = "清除历史数据";
+            this.btnClearaHistory.UseVisualStyleBackColor = true;
+            this.btnClearaHistory.Click += new System.EventHandler(this.btnClearaHistory_Click);
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(905, 121);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(42, 21);
+            this.textBox3.TabIndex = 28;
+            // 
+            // BtnWave
+            // 
+            this.BtnWave.Location = new System.Drawing.Point(720, 92);
+            this.BtnWave.Name = "BtnWave";
+            this.BtnWave.Size = new System.Drawing.Size(101, 23);
+            this.BtnWave.TabIndex = 29;
+            this.BtnWave.Text = "开始记录数据";
+            this.BtnWave.UseVisualStyleBackColor = true;
+            this.BtnWave.Click += new System.EventHandler(this.BtnWave_Click_1);
+            // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(823, 76);
+            this.btnSave.Location = new System.Drawing.Point(902, 57);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(68, 25);
+            this.btnSave.Size = new System.Drawing.Size(75, 25);
             this.btnSave.TabIndex = 23;
             this.btnSave.Text = "保存";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -1391,7 +1520,7 @@ namespace Jet_System
             // chbxSaveImage
             // 
             this.chbxSaveImage.AutoSize = true;
-            this.chbxSaveImage.Location = new System.Drawing.Point(943, 52);
+            this.chbxSaveImage.Location = new System.Drawing.Point(901, 23);
             this.chbxSaveImage.Name = "chbxSaveImage";
             this.chbxSaveImage.Size = new System.Drawing.Size(72, 16);
             this.chbxSaveImage.TabIndex = 9;
@@ -1484,36 +1613,75 @@ namespace Jet_System
             this.tblImageAndControl.RowCount = 2;
             this.tblImageAndControl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tblImageAndControl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblImageAndControl.Size = new System.Drawing.Size(355, 786);
+            this.tblImageAndControl.Size = new System.Drawing.Size(355, 737);
             this.tblImageAndControl.TabIndex = 0;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btnRunOnce_D0_T);
+            this.groupBox2.Controls.Add(this.customerLights);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.cbxHistoryData);
+            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.lblStatusShow);
             this.groupBox2.Controls.Add(this.txtTime);
-            this.groupBox2.Controls.Add(this.btnSwitch);
             this.groupBox2.Controls.Add(this.btnRunOnce);
             this.groupBox2.Controls.Add(this.btnCurrentImageRun);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(3, 396);
+            this.groupBox2.Location = new System.Drawing.Point(3, 371);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(349, 387);
+            this.groupBox2.Size = new System.Drawing.Size(349, 363);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "运行";
             // 
-            // btnRunOnce_D0_T
+            // label4
             // 
-            this.btnRunOnce_D0_T.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnRunOnce_D0_T.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnRunOnce_D0_T.Location = new System.Drawing.Point(43, 81);
-            this.btnRunOnce_D0_T.Name = "btnRunOnce_D0_T";
-            this.btnRunOnce_D0_T.Size = new System.Drawing.Size(143, 44);
-            this.btnRunOnce_D0_T.TabIndex = 10;
-            this.btnRunOnce_D0_T.Text = "触发DO_T";
-            this.btnRunOnce_D0_T.UseVisualStyleBackColor = false;
-            this.btnRunOnce_D0_T.Visible = false;
-            this.btnRunOnce_D0_T.Click += new System.EventHandler(this.btnRunOnce_D0_T_Click);
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("宋体", 18F);
+            this.label4.Location = new System.Drawing.Point(39, 330);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(154, 24);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "历史数据选择";
+            // 
+            // cbxHistoryData
+            // 
+            this.cbxHistoryData.FormattingEnabled = true;
+            this.cbxHistoryData.Items.AddRange(new object[] {
+            "12PR-RAF",
+            "8PR-DO"});
+            this.cbxHistoryData.Location = new System.Drawing.Point(203, 334);
+            this.cbxHistoryData.Name = "cbxHistoryData";
+            this.cbxHistoryData.Size = new System.Drawing.Size(124, 20);
+            this.cbxHistoryData.TabIndex = 19;
+            this.cbxHistoryData.SelectedIndexChanged += new System.EventHandler(this.cbxHistoryData_SelectedIndexChanged);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(227, 139);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 21);
+            this.textBox2.TabIndex = 18;
+            this.textBox2.Visible = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(227, 94);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 21);
+            this.textBox1.TabIndex = 17;
+            this.textBox1.Visible = false;
+            // 
+            // lblStatusShow
+            // 
+            this.lblStatusShow.AutoSize = true;
+            this.lblStatusShow.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblStatusShow.Location = new System.Drawing.Point(39, 94);
+            this.lblStatusShow.Name = "lblStatusShow";
+            this.lblStatusShow.Size = new System.Drawing.Size(130, 24);
+            this.lblStatusShow.TabIndex = 16;
+            this.lblStatusShow.Text = "未开始检测";
             // 
             // txtTime
             // 
@@ -1522,26 +1690,13 @@ namespace Jet_System
             this.txtTime.Size = new System.Drawing.Size(100, 21);
             this.txtTime.TabIndex = 9;
             // 
-            // btnSwitch
-            // 
-            this.btnSwitch.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnSwitch.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnSwitch.Location = new System.Drawing.Point(43, 224);
-            this.btnSwitch.Name = "btnSwitch";
-            this.btnSwitch.Size = new System.Drawing.Size(143, 44);
-            this.btnSwitch.TabIndex = 8;
-            this.btnSwitch.Text = "切换";
-            this.btnSwitch.UseVisualStyleBackColor = false;
-            this.btnSwitch.Visible = false;
-            this.btnSwitch.Click += new System.EventHandler(this.btnSwitch_Click);
-            // 
             // groupBox_Image
             // 
             this.groupBox_Image.Controls.Add(this.tabControlImage);
             this.groupBox_Image.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox_Image.Location = new System.Drawing.Point(3, 3);
             this.groupBox_Image.Name = "groupBox_Image";
-            this.groupBox_Image.Size = new System.Drawing.Size(349, 387);
+            this.groupBox_Image.Size = new System.Drawing.Size(349, 362);
             this.groupBox_Image.TabIndex = 0;
             this.groupBox_Image.TabStop = false;
             this.groupBox_Image.Text = "图像";
@@ -1556,7 +1711,7 @@ namespace Jet_System
             this.tabControlImage.Location = new System.Drawing.Point(3, 17);
             this.tabControlImage.Name = "tabControlImage";
             this.tabControlImage.SelectedIndex = 0;
-            this.tabControlImage.Size = new System.Drawing.Size(343, 367);
+            this.tabControlImage.Size = new System.Drawing.Size(343, 342);
             this.tabControlImage.TabIndex = 0;
             // 
             // tapaResultImage1
@@ -1565,7 +1720,7 @@ namespace Jet_System
             this.tapaResultImage1.Location = new System.Drawing.Point(4, 22);
             this.tapaResultImage1.Name = "tapaResultImage1";
             this.tapaResultImage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tapaResultImage1.Size = new System.Drawing.Size(335, 341);
+            this.tapaResultImage1.Size = new System.Drawing.Size(335, 316);
             this.tapaResultImage1.TabIndex = 0;
             this.tapaResultImage1.Text = "1号图像";
             this.tapaResultImage1.UseVisualStyleBackColor = true;
@@ -1583,7 +1738,7 @@ namespace Jet_System
             this.mDisplay1Result.MouseWheelSensitivity = 1D;
             this.mDisplay1Result.Name = "mDisplay1Result";
             this.mDisplay1Result.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("mDisplay1Result.OcxState")));
-            this.mDisplay1Result.Size = new System.Drawing.Size(329, 335);
+            this.mDisplay1Result.Size = new System.Drawing.Size(329, 310);
             this.mDisplay1Result.TabIndex = 1;
             // 
             // tapaResultImage2
@@ -1592,7 +1747,7 @@ namespace Jet_System
             this.tapaResultImage2.Location = new System.Drawing.Point(4, 22);
             this.tapaResultImage2.Name = "tapaResultImage2";
             this.tapaResultImage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tapaResultImage2.Size = new System.Drawing.Size(335, 341);
+            this.tapaResultImage2.Size = new System.Drawing.Size(335, 316);
             this.tapaResultImage2.TabIndex = 1;
             this.tapaResultImage2.Text = "2号图像";
             this.tapaResultImage2.UseVisualStyleBackColor = true;
@@ -1610,7 +1765,7 @@ namespace Jet_System
             this.mDisplay2Result.MouseWheelSensitivity = 1D;
             this.mDisplay2Result.Name = "mDisplay2Result";
             this.mDisplay2Result.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("mDisplay2Result.OcxState")));
-            this.mDisplay2Result.Size = new System.Drawing.Size(329, 335);
+            this.mDisplay2Result.Size = new System.Drawing.Size(329, 310);
             this.mDisplay2Result.TabIndex = 2;
             // 
             // tapaRowImage1
@@ -1618,7 +1773,7 @@ namespace Jet_System
             this.tapaRowImage1.Controls.Add(this.mDisplay1Row);
             this.tapaRowImage1.Location = new System.Drawing.Point(4, 22);
             this.tapaRowImage1.Name = "tapaRowImage1";
-            this.tapaRowImage1.Size = new System.Drawing.Size(335, 341);
+            this.tapaRowImage1.Size = new System.Drawing.Size(335, 316);
             this.tapaRowImage1.TabIndex = 2;
             this.tapaRowImage1.Text = "1号原始图像";
             this.tapaRowImage1.UseVisualStyleBackColor = true;
@@ -1636,7 +1791,7 @@ namespace Jet_System
             this.mDisplay1Row.MouseWheelSensitivity = 1D;
             this.mDisplay1Row.Name = "mDisplay1Row";
             this.mDisplay1Row.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("mDisplay1Row.OcxState")));
-            this.mDisplay1Row.Size = new System.Drawing.Size(335, 341);
+            this.mDisplay1Row.Size = new System.Drawing.Size(335, 316);
             this.mDisplay1Row.TabIndex = 6;
             // 
             // tapaRowImage2
@@ -1644,13 +1799,14 @@ namespace Jet_System
             this.tapaRowImage2.Controls.Add(this.mDisplay2Row);
             this.tapaRowImage2.Location = new System.Drawing.Point(4, 22);
             this.tapaRowImage2.Name = "tapaRowImage2";
-            this.tapaRowImage2.Size = new System.Drawing.Size(335, 341);
+            this.tapaRowImage2.Size = new System.Drawing.Size(335, 316);
             this.tapaRowImage2.TabIndex = 3;
             this.tapaRowImage2.Text = "2号原始图像";
             this.tapaRowImage2.UseVisualStyleBackColor = true;
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.相机ToolStripMenuItem,
             this.程序参数ToolStripMenuItem});
@@ -1677,10 +1833,11 @@ namespace Jet_System
             // 
             // statusStrip1
             // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.status_child_static_message,
             this.status_child_Camera_status});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 849);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 800);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1370, 22);
             this.statusStrip1.TabIndex = 11;
@@ -1703,7 +1860,7 @@ namespace Jet_System
             this.groupBox_Display_max.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox_Display_max.Location = new System.Drawing.Point(3, 3);
             this.groupBox_Display_max.Name = "groupBox_Display_max";
-            this.groupBox_Display_max.Size = new System.Drawing.Size(1123, 786);
+            this.groupBox_Display_max.Size = new System.Drawing.Size(1123, 737);
             this.groupBox_Display_max.TabIndex = 12;
             this.groupBox_Display_max.TabStop = false;
             this.groupBox_Display_max.Text = "图像";
@@ -1720,7 +1877,7 @@ namespace Jet_System
             this.tbll_Max_TwoDisplay.Name = "tbll_Max_TwoDisplay";
             this.tbll_Max_TwoDisplay.RowCount = 1;
             this.tbll_Max_TwoDisplay.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbll_Max_TwoDisplay.Size = new System.Drawing.Size(1117, 766);
+            this.tbll_Max_TwoDisplay.Size = new System.Drawing.Size(1117, 717);
             this.tbll_Max_TwoDisplay.TabIndex = 1;
             // 
             // tabControl2
@@ -1731,7 +1888,7 @@ namespace Jet_System
             this.tabControl2.Location = new System.Drawing.Point(1050, 3);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(64, 760);
+            this.tabControl2.Size = new System.Drawing.Size(64, 711);
             this.tabControl2.TabIndex = 1;
             // 
             // tabPage6
@@ -1740,7 +1897,7 @@ namespace Jet_System
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(56, 734);
+            this.tabPage6.Size = new System.Drawing.Size(56, 685);
             this.tabPage6.TabIndex = 1;
             this.tabPage6.Text = "2号图像";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -1758,7 +1915,7 @@ namespace Jet_System
             this.mDisplay2ResultShow.MouseWheelSensitivity = 1D;
             this.mDisplay2ResultShow.Name = "mDisplay2ResultShow";
             this.mDisplay2ResultShow.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("mDisplay2ResultShow.OcxState")));
-            this.mDisplay2ResultShow.Size = new System.Drawing.Size(50, 728);
+            this.mDisplay2ResultShow.Size = new System.Drawing.Size(50, 679);
             this.mDisplay2ResultShow.TabIndex = 2;
             // 
             // tabPage8
@@ -1766,7 +1923,7 @@ namespace Jet_System
             this.tabPage8.Controls.Add(this.mDisplay2RowShow);
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(56, 612);
+            this.tabPage8.Size = new System.Drawing.Size(56, 685);
             this.tabPage8.TabIndex = 3;
             this.tabPage8.Text = "2号原始图像";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -1784,7 +1941,7 @@ namespace Jet_System
             this.mDisplay2RowShow.MouseWheelSensitivity = 1D;
             this.mDisplay2RowShow.Name = "mDisplay2RowShow";
             this.mDisplay2RowShow.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("mDisplay2RowShow.OcxState")));
-            this.mDisplay2RowShow.Size = new System.Drawing.Size(56, 612);
+            this.mDisplay2RowShow.Size = new System.Drawing.Size(56, 685);
             this.mDisplay2RowShow.TabIndex = 5;
             // 
             // tabControl1
@@ -1795,7 +1952,7 @@ namespace Jet_System
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1041, 760);
+            this.tabControl1.Size = new System.Drawing.Size(1041, 711);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -1804,7 +1961,7 @@ namespace Jet_System
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1033, 734);
+            this.tabPage1.Size = new System.Drawing.Size(1033, 685);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "1号图像";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -1822,7 +1979,7 @@ namespace Jet_System
             this.mDisplay1ResultShow.MouseWheelSensitivity = 1D;
             this.mDisplay1ResultShow.Name = "mDisplay1ResultShow";
             this.mDisplay1ResultShow.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("mDisplay1ResultShow.OcxState")));
-            this.mDisplay1ResultShow.Size = new System.Drawing.Size(1027, 728);
+            this.mDisplay1ResultShow.Size = new System.Drawing.Size(1027, 679);
             this.mDisplay1ResultShow.TabIndex = 1;
             // 
             // tabPage3
@@ -1830,7 +1987,7 @@ namespace Jet_System
             this.tabPage3.Controls.Add(this.mDisplay1RowShow);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1033, 612);
+            this.tabPage3.Size = new System.Drawing.Size(1033, 685);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "1号原始图像";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -1848,7 +2005,7 @@ namespace Jet_System
             this.mDisplay1RowShow.MouseWheelSensitivity = 1D;
             this.mDisplay1RowShow.Name = "mDisplay1RowShow";
             this.mDisplay1RowShow.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("mDisplay1RowShow.OcxState")));
-            this.mDisplay1RowShow.Size = new System.Drawing.Size(1033, 612);
+            this.mDisplay1RowShow.Size = new System.Drawing.Size(1033, 685);
             this.mDisplay1RowShow.TabIndex = 6;
             // 
             // tabControl_Main_all
@@ -1861,7 +2018,7 @@ namespace Jet_System
             this.tabControl_Main_all.Location = new System.Drawing.Point(0, 25);
             this.tabControl_Main_all.Name = "tabControl_Main_all";
             this.tabControl_Main_all.SelectedIndex = 0;
-            this.tabControl_Main_all.Size = new System.Drawing.Size(1370, 824);
+            this.tabControl_Main_all.Size = new System.Drawing.Size(1370, 775);
             this.tabControl_Main_all.TabIndex = 13;
             // 
             // tab_Measure
@@ -1870,7 +2027,7 @@ namespace Jet_System
             this.tab_Measure.Location = new System.Drawing.Point(4, 22);
             this.tab_Measure.Name = "tab_Measure";
             this.tab_Measure.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_Measure.Size = new System.Drawing.Size(1362, 798);
+            this.tab_Measure.Size = new System.Drawing.Size(1362, 749);
             this.tab_Measure.TabIndex = 0;
             this.tab_Measure.Text = "检测";
             this.tab_Measure.UseVisualStyleBackColor = true;
@@ -1881,7 +2038,7 @@ namespace Jet_System
             this.tab_Display.Location = new System.Drawing.Point(4, 22);
             this.tab_Display.Name = "tab_Display";
             this.tab_Display.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_Display.Size = new System.Drawing.Size(1362, 798);
+            this.tab_Display.Size = new System.Drawing.Size(1362, 749);
             this.tab_Display.TabIndex = 1;
             this.tab_Display.Text = "显示";
             this.tab_Display.UseVisualStyleBackColor = true;
@@ -1898,7 +2055,7 @@ namespace Jet_System
             this.tbll_Display_max.Name = "tbll_Display_max";
             this.tbll_Display_max.RowCount = 1;
             this.tbll_Display_max.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tbll_Display_max.Size = new System.Drawing.Size(1356, 792);
+            this.tbll_Display_max.Size = new System.Drawing.Size(1356, 743);
             this.tbll_Display_max.TabIndex = 13;
             // 
             // groupBox_message
@@ -1909,7 +2066,7 @@ namespace Jet_System
             this.groupBox_message.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox_message.Location = new System.Drawing.Point(1132, 3);
             this.groupBox_message.Name = "groupBox_message";
-            this.groupBox_message.Size = new System.Drawing.Size(221, 786);
+            this.groupBox_message.Size = new System.Drawing.Size(221, 737);
             this.groupBox_message.TabIndex = 13;
             this.groupBox_message.TabStop = false;
             this.groupBox_message.Text = "信息";
@@ -1948,7 +2105,7 @@ namespace Jet_System
             this.tab_RAF.Controls.Add(this.cogtool_RAF);
             this.tab_RAF.Location = new System.Drawing.Point(4, 22);
             this.tab_RAF.Name = "tab_RAF";
-            this.tab_RAF.Size = new System.Drawing.Size(1362, 798);
+            this.tab_RAF.Size = new System.Drawing.Size(1362, 749);
             this.tab_RAF.TabIndex = 2;
             this.tab_RAF.Text = "RAF_程序";
             this.tab_RAF.UseVisualStyleBackColor = true;
@@ -1962,7 +2119,7 @@ namespace Jet_System
             this.cogtool_RAF.MinimumSize = new System.Drawing.Size(489, 0);
             this.cogtool_RAF.Name = "cogtool_RAF";
             this.cogtool_RAF.ShowNodeToolTips = true;
-            this.cogtool_RAF.Size = new System.Drawing.Size(1362, 798);
+            this.cogtool_RAF.Size = new System.Drawing.Size(1362, 749);
             this.cogtool_RAF.SuspendElectricRuns = false;
             this.cogtool_RAF.TabIndex = 3;
             // 
@@ -1971,7 +2128,7 @@ namespace Jet_System
             this.tab_DO.Controls.Add(this.cogtool_DO);
             this.tab_DO.Location = new System.Drawing.Point(4, 22);
             this.tab_DO.Name = "tab_DO";
-            this.tab_DO.Size = new System.Drawing.Size(1362, 798);
+            this.tab_DO.Size = new System.Drawing.Size(1362, 749);
             this.tab_DO.TabIndex = 3;
             this.tab_DO.Text = "DO_程序";
             this.tab_DO.UseVisualStyleBackColor = true;
@@ -1985,22 +2142,32 @@ namespace Jet_System
             this.cogtool_DO.MinimumSize = new System.Drawing.Size(489, 0);
             this.cogtool_DO.Name = "cogtool_DO";
             this.cogtool_DO.ShowNodeToolTips = true;
-            this.cogtool_DO.Size = new System.Drawing.Size(1362, 798);
+            this.cogtool_DO.Size = new System.Drawing.Size(1362, 749);
             this.cogtool_DO.SuspendElectricRuns = false;
             this.cogtool_DO.TabIndex = 2;
+            // 
+            // customerLights
+            // 
+            this.customerLights.LightCount = 2;
+            this.customerLights.LightLength = 5;
+            this.customerLights.LightRadius = 20;
+            this.customerLights.Location = new System.Drawing.Point(20, 196);
+            this.customerLights.Name = "customerLights";
+            this.customerLights.Size = new System.Drawing.Size(273, 104);
+            this.customerLights.TabIndex = 21;
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1370, 871);
+            this.ClientSize = new System.Drawing.Size(1370, 822);
             this.Controls.Add(this.tabControl_Main_all);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormMain";
-            this.Text = "华为5g检测";
+            this.Text = "Elite检测";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
             this.Load += new System.EventHandler(this.FormMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.mDisplay2Row)).EndInit();
@@ -2052,6 +2219,8 @@ namespace Jet_System
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_Beam_Inner_L)).EndInit();
             this.tab_Beam_Inner_R.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_Beam_Inner_R)).EndInit();
+            this.tab_TiePian.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_TiePian)).EndInit();
             this.palSelectMeasure.ResumeLayout(false);
             this.palSelectMeasure.PerformLayout();
             this.groupBoxTongji.ResumeLayout(false);
@@ -2112,7 +2281,6 @@ namespace Jet_System
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TabControl tabControl_Main;
         internal Cognex.VisionPro.Display.CogDisplay mDisplay1Row;
-        private System.Windows.Forms.Button btnSwitch;
         private System.Windows.Forms.TextBox txtTime;
         private CogRecordDisplay mDisplay1Result;
         private System.Windows.Forms.TabPage tab_Beam_Touch_Window_L_L;
@@ -2180,7 +2348,6 @@ namespace Jet_System
         private System.Windows.Forms.DataGridView dataGrid_Shield_Flatness;
         private System.Windows.Forms.DataGridView dataGrid_Cross_Shield_TP;
         private System.Windows.Forms.DataGridView dataGrid_Wafer_Thickness;
-        private System.Windows.Forms.Button btnRunOnce_D0_T;
         private System.Windows.Forms.RadioButton ra_Shield_Cross_Angle;
         private System.Windows.Forms.TabPage tab_Shield_Cross_Angle;
         private System.Windows.Forms.DataGridView dataGrid_Shield_Cross_Angle;
@@ -2249,6 +2416,20 @@ namespace Jet_System
         private System.Windows.Forms.DataGridView dataGrid_Beam_Inner_L;
         private System.Windows.Forms.TabPage tab_Beam_Inner_R;
         private System.Windows.Forms.DataGridView dataGrid_Beam_Inner_R;
+        private System.Windows.Forms.Label lblStatusShow;
+        private System.Windows.Forms.TabPage tab_TiePian;
+        private System.Windows.Forms.DataGridView dataGrid_TiePian;
+        private System.Windows.Forms.RadioButton ra_TiePian;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cbxHistoryData;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label LabelWaveDataCnt;
+        private System.Windows.Forms.Button btnClearaHistory;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button BtnWave;
+        private CustomerUserControl.CustomerLightsPanel customerLights;
     }
 }
 
