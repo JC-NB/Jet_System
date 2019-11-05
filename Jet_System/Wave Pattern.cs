@@ -20,7 +20,7 @@ namespace Jet_System
 
         List<WaveData> receiveData = new List<WaveData>();
         List<double> a = new List<double>();
-        Series series;
+        Series series = new Series();
         int indexxx;
         int counttt;
         string SelectName;
@@ -34,8 +34,8 @@ namespace Jet_System
         }
         internal void ReceiveMsg(List<WaveData> wd, int indexx, int Count, string name, string program)
         {
-            chart1.Width = 1246 + wd.Count() * 40;
-            series = new Series();
+            chart1.Width = 1246 + wd.Count() * 50;
+           
             series = chart1.Series[0];
             series.ChartType = SeriesChartType.Spline;
             series.BorderWidth = 2;
@@ -108,6 +108,18 @@ namespace Jet_System
                             series.LegendText = "Shield_Cross_Angle";
                             label2.Text = "第" + indexxx + "个Shield_Cross_Angle数据";
                             break;
+                        case "Beam_Inner_L":
+                            a.Add(Convert.ToDouble(receiveData[i].Beam_Inner_L[indexxx - 1]));
+                            WaveDataShow.Text += (i + 1) + ": " + receiveData[i].datetime.ToString("HH:mm:ss") + "  " + Convert.ToDouble(receiveData[i].Beam_Inner_L[indexxx - 1]) + "\n";
+                            series.LegendText = "Beam_Inner_L";
+                            label2.Text = "第" + indexxx + "个Beam_Inner_L数据";
+                            break;
+                        case "Beam_Inner_R":
+                            a.Add(Convert.ToDouble(receiveData[i].Beam_Inner_R[indexxx - 1]));
+                            WaveDataShow.Text += (i + 1) + ": " + receiveData[i].datetime.ToString("HH:mm:ss") + "  " + Convert.ToDouble(receiveData[i].Beam_Inner_R[indexxx - 1]) + "\n";
+                            series.LegendText = "Beam_Inner_R";
+                            label2.Text = "第" + indexxx + "个Beam_Inner_R数据";
+                            break;
 
                     }
                     if (i == receiveData.Count - 1)
@@ -169,7 +181,7 @@ namespace Jet_System
                     }
                     if (i == receiveData.Count - 1)
                     {
-                        labelTimeEnd.Text = receiveData[i].datetime.ToString("HH:ss:mm");
+                        labelTimeEnd.Text = receiveData[i].datetime.ToString("HH:mm:ss");
                     }
                     chart1.Series[0].Points.DataBindXY(b, a);
 
@@ -222,8 +234,8 @@ namespace Jet_System
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
-            WaveDataShow.SelectionStart = WaveDataShow.Text.Length;
-            WaveDataShow.ScrollToCaret();
+            //WaveDataShow.SelectionStart = WaveDataShow.Text.Length;
+            //WaveDataShow.ScrollToCaret();
         }
     }
 }
